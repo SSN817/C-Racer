@@ -1,0 +1,38 @@
+Metasequoia Document
+Format Text Ver 1.0
+
+Scene {
+	pos 58.2752 -235.0462 5422.5083
+	lookat 0.0000 0.0000 0.0000
+	head -7.8300
+	pich 0.2300
+	ortho 0
+	zoom2 0.7629
+	amb 0.250 0.250 0.250
+}
+Material 6 {
+	"コンクリート" col(0.561 0.561 0.561 1.000) dif(0.250) amb(0.710) emi(0.000) spc(0.000) power(5.00)
+	"屋根" col(0.871 0.871 0.871 1.000) dif(0.810) amb(0.570) emi(0.170) spc(0.180) power(6.00)
+	"観客１" col(1.000 1.000 1.000 1.000) dif(0.800) amb(0.600) emi(0.000) spc(0.000) power(5.00) tex("C:\Users\a\Desktop\3Dテクスチャ・モデル\観客１.png") aplane("C:\Users\a\Desktop\3Dテクスチャ・モデル\観客１(透過).png")
+	"観客２" col(1.000 1.000 1.000 1.000) dif(0.800) amb(0.600) emi(0.000) spc(0.000) power(5.00) tex("C:\Users\a\Desktop\3Dテクスチャ・モデル\観客2.png") aplane("C:\Users\a\Desktop\3Dテクスチャ・モデル\観客2(透過).png")
+	"観客３" col(1.000 1.000 1.000 1.000) dif(0.800) amb(0.600) emi(0.000) spc(0.000) power(5.00) tex("C:\Users\a\Desktop\3Dテクスチャ・モデル\観客3.png") aplane("C:\Users\a\Desktop\3Dテクスチャ・モデル\観客3(透過).png")
+	"関西大学１" col(1.000 1.000 1.000 1.000) dif(0.800) amb(0.600) emi(0.000) spc(0.000) power(5.00) tex("C:\Users\a\Desktop\3Dテクスチャ・モデル\img_01.bmp")
+}
+Object "観客（保存用）" {
+	visible 15
+	locking 0
+	shading 1
+	facet 59.5
+	color 0.898 0.498 0.698
+	color_type 0
+	vertex 4 {
+		122.9680 241.6680 869.8062
+		122.9680 241.6680 -828.3580
+		122.9680 261.1700 869.8062
+		122.9680 261.1700 -828.3580
+	}
+	face 1 {
+		4 V(2 3 1 0) M(2) UV(6.99795 -1.94444 -8.29689 -1.94444 -8.29689 -1.01523 6.99795 -1.01523)
+	}
+}
+Eof
