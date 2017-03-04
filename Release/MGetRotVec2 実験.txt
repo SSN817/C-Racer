@@ -1,0 +1,84 @@
+#include "DxLib.h"
+#include <math.h>
+#define PI 3.1415926535897932f
+
+
+// プログラムは WinMain から始まります
+int WINAPI WinMain( HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpCmdLine, int nCmdShow )
+{
+
+	ChangeWindowMode( TRUE ) ;//ホップアップウインドウで表示
+	SetGraphMode(800,800,32);//解像度800×800
+	if( DxLib_Init() == -1 )	// ＤＸライブラリ初期化処理
+	{
+		return -1 ;	// エラーが起きたら直ちに終了
+	}
+
+SetDrawScreen( DX_SCREEN_BACK ); //描画先を裏画面に設定
+SetCameraPositionAndTarget_UpVecY(VGet(1000.0f,0.0f,0.0f),VGet(0.0f,0.0f,0.0f));
+
+
+int i=0;
+VECTOR model,rota;
+model=VGet(0.0f,300.0f,0.0f);
+
+MATRIX Rota_Matrix;
+MV1_COLL_RESULT_POLY coll;
+int ground;
+ground=MV1LoadModel("斜面テスト.mqo");
+MV1SetupCollInfo(ground,-1,32,8,32);
+
+
+
+	while(ProcessMessage()!=-1)
+	{
+		ClearDrawScreen(); // 画面を消す
+
+		
+i++;
+rota=VGet(0.0f,cos(PI/360.0*i),sin(PI/360.0*i));
+Rota_Matrix=MGetRotVec2(model,rota);
+model=VTransform(model,Rota_Matrix);
+
+
+DrawBox(0,0,800,800,GetColor(0,155,50),1);
+
+DrawCone3D(model,VGet(0.0f,0.0f,0.0f),100.0f,18,GetColor(255,255,255),GetColor(255,255,255),1);
+DrawLine3D(model,VGet(0.0,0.0,0.0),GetColor(255,0,0));
+
+
+MV1DrawModel(ground);
+MV1SetPosition(ground,VGet(0.0,-100.0,0.0));
+
+coll=MV1CollCheck_Line(ground,-1,model,VGet(0.0f,0.0f,0.0f));
+
+DrawFormatString(0,0,GetColor(255,255,255),"%d",coll.HitFlag);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+WaitTimer(20);
+		ScreenFlip();//裏画面反映
+	}
+
+
+
+	WaitKey() ;// キー入力待ち
+	DxLib_End() ;// ＤＸライブラリ使用の終了処理
+	return 0 ;	// ソフトの終了 
+}
