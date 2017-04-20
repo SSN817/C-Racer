@@ -8,4 +8,4 @@ Dxライブラリが利用できる環境ならcodesフォルダとmaterialsフ�
 # 遊び方
 Fキーで加速、Bキーでブレーキ、Cキーで視点切り替え、BackSpace+Tabで初期画面に戻る.  
 なるべく素早くコースを一周しよう！  
-https://github.com/SSN817/C-Racer/blob/master/demo.png  
+[demo](https://github.com/SSN817/C-Racer/blob/master/demo.png "demo")  
